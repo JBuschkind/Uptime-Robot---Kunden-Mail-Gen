@@ -129,12 +129,55 @@ Beispiel: `nicole.mossell_lasi-24.de_2026-05.txt`
 
 Die Dateien können direkt als E-Mail-Text verwendet oder in ein Mailprogramm kopiert werden.
 
+## E-Mails versenden (Google Workspace)
+
+### SMTP-Zugangsdaten einrichten
+
+In `.env` zusätzlich eintragen:
+
+```env
+SMTP_EMAIL=ihre-adresse@ihre-domain.de
+SMTP_APP_PASSWORD=ihr_app_passwort
+SMTP_FROM_NAME=Ihr Name
+```
+
+**App-Passwort erstellen:** [Google-Konto → Sicherheit](https://myaccount.google.com/security) → Bestätigung in zwei Schritten aktivieren → App-Passwörter → neues Passwort für „Mail“ anlegen. Das 16-stellige Passwort (ohne Leerzeichen) als `SMTP_APP_PASSWORD` eintragen.
+
+> Hinweis: Der Google-Workspace-Administrator muss App-Passwörter ggf. freigeben.
+
+### Berichte versenden
+
+```bash
+python send_reports.py
+```
+
+Betreff: `Monatliches Reporting für Mai 2026` (Monat und Jahr passen sich automatisch an).
+
+Vorschau ohne Versand:
+
+```bash
+python send_reports.py --dry-run
+```
+
+Nur einen Kunden:
+
+```bash
+python send_reports.py --only kunde@beispiel.de
+```
+
+Bestimmter Monat:
+
+```bash
+python send_reports.py --year 2026 --month 5
+```
+
 ## Typischer Monatsablauf
 
 1. Prüfen, ob neue Kunden oder Monitore in `config.yaml` eingetragen werden müssen
 2. Testlauf: `python generate_reports.py --dry-run`
 3. Berichte erzeugen: `python generate_reports.py`
-4. Dateien aus `output/` prüfen und an die jeweiligen Kunden senden
+4. Versand testen: `python send_reports.py --dry-run`
+5. Mails versenden: `python send_reports.py`
 
 ## Fehlerbehebung
 
@@ -145,12 +188,16 @@ Die Dateien können direkt als E-Mail-Text verwendet oder in ein Mailprogramm ko
 | `Keine Kunden in der Konfiguration` | Mindestens einen Eintrag unter `customers` anlegen |
 | `Monitor … nicht gefunden` | Monitor-ID in Uptime Robot prüfen |
 | `Uptime Robot API-Fehler` | API-Schlüssel und Internetverbindung prüfen |
+| `SMTP_EMAIL fehlt` / `SMTP_APP_PASSWORD fehlt` | SMTP-Daten in `.env` eintragen |
+| `Bericht nicht gefunden` | Zuerst `generate_reports.py` für den Monat ausführen |
+| SMTP-Authentifizierung schlägt fehl | App-Passwort prüfen, 2FA muss aktiv sein |
 
 ## Projektstruktur
 
 ```
 .
-├── generate_reports.py   # Hauptskript
+├── generate_reports.py   # Berichte erzeugen
+├── send_reports.py       # Berichte per E-Mail versenden
 ├── config.yaml           # Ihre Kunden-Konfiguration (nicht committen)
 ├── config.example.yaml   # Vorlage für config.yaml
 ├── mail_template.txt     # E-Mail-Textvorlage

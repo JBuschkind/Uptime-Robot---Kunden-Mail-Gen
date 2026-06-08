@@ -7,3 +7,6 @@ venv/
 
 # Lokale Kunden-Konfiguration
 config.yaml
+
+# Erzeugte Kunden-Mails
+output/
