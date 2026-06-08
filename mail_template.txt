@@ -1,0 +1,30 @@
+{salutation}
+
+im Rahmen Ihres PremiumPlus-Hostings erhalten Sie regelmäßig einen Verfügbarkeitsbericht Ihrer Website:
+
+{availability_lines}
+
+Bekannte Incidents:
+
+{incidents}
+
+Sollten Sie Fragen haben, melden Sie sich gerne jederzeit bei mir.
+
+Herzliche Grüße
+Johann Busch
+
+--
+PARROT MEDIA GmbH
+Bei der Gasanstalt 2-4
+23560 Lübeck
+
+0451 - 709 807-14
+busch@parrot-media.de
+www.parrot-media.de
+
+Instagram | Facebook | LinkedIn | Google Bewertungen | Fernwartung
+
+PARROT MEDIA GmbH, Bei der Gasanstalt 2-4, 23560 Lübeck
+Geschäftsführer: Nikolas Holtfoth, Eike Swat, Nico Henschel
+Amtsgericht Lübeck HRB 15128
+USt-IdNr.: DE 256704908

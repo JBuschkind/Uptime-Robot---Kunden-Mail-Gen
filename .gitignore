@@ -1,0 +1,9 @@
+# Virtuelle Umgebung
+.venv/
+venv/
+
+# API-Schlüssel
+.env
+
+# Lokale Kunden-Konfiguration
+config.yaml

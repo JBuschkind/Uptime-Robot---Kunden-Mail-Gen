@@ -1,0 +1,18 @@
+# Kopieren nach config.yaml und anpassen.
+# API-Schlüssel: https://uptimerobot.com/dashboard#mySettings
+
+report:
+  # Optional: Berichtsmonat (Standard = Vormonat)
+  # year: 2026
+  # month: 5
+  output_dir: output
+
+customers:
+  - email: kunde@beispiel.de
+    # filename: musterfirma  # optional, sonst wird die E-Mail als Dateiname genutzt
+    monitors:
+      # monitor_id aus Uptime Robot; domain optional (sonst aus Monitor-URL)
+      - id: 123456789
+        domain: domain.de
+      - id: 987654321
+        domain: zweite-domain.de
